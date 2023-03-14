@@ -7,7 +7,7 @@ const Container = styled.div`
 height: 60px;
 `
 const Wrapper = styled.div`
-padding:10px 20px;
+padding:0px 20px;
 display: flex; 
 align-items: center; 
 justify-content: space-between;
@@ -37,8 +37,8 @@ const Center = styled.div`
 flex:1;
 text-align: center;
 `
-const Logo = styled.h1`
-font-weight: bold;
+const Logo = styled.img`
+height: 60px;
 `
 
 const Right = styled.div`
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <Search style={{color:"gray", fontSize:16}}/>
             </SearchContainer>
             </Left>
-            <Center><Logo>STYLE HUB</Logo></Center>
+            <Center><Logo src='style.png'/></Center>
             <Right>
                 <MenuItem>REGISTER</MenuItem>
                 <MenuItem>SIGN IN</MenuItem>
