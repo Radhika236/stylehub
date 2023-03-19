@@ -4,57 +4,62 @@ import styled from "styled-components"
 import { sliderItems } from "../data"
 
 const Container= styled.div`
-height: 100%;
+width: 100%;
+height: 100vh;
 display: flex;
 position: relative;
-// overflow: hidden;
-`
+overflow: hidden;
+`;
 
-const Arrow= styled.div`
+const Arrow = styled.div`
 width: 50px;
 height: 50px;
 background-color: #fff7f7;
 border-radius: 50%;
-display:flex;
+display: flex;
 align-items: center;
 justify-content: center;
 position: absolute;
 top: 0;
 bottom: 0;
-left: ${props=> props.direction === "left" && "10px"};
-right: ${props=> props.direction === "right" && "10px"};
-margin:auto;
+left: ${props=> props.direction === "left" && "10px;"};
+right: ${props=> props.direction === "right" && "10px;"};
+margin: auto;
 cursor: pointer;
-z-index: 2;
-`
+opacity: 0.5;
+z-index: 3;
+`;
+
 const Wrapper= styled.div`
-height:100%;
-width: 100%;
-display: flex;
-transition: all 1.5s ease;
-transform:translateX(${(props) => props.slideIndex * -100}vw);
-`
-const Slide= styled.div`
+  height: 100%;
+  display: flex;
+  transition: all 1.5s ease;
+  transform:translateX(${(props) => props.slideIndex * -100}vw);
+`;
+
+const Slide = styled.div`
 width: 100vw;
 height: 100vh;
 display: flex;
 align-items: center;
 background-color: #${props=>props.bg}
-`
-const ImgContainer= styled.div`
+`;
+const ImgContainer = styled.div`
 flex:1;
+height:100%;
+`;
+const Image = styled.img`
 height: 100%;
 `
-const Image= styled.img`
-height: 80%;
-`
-const InfoContainer= styled.div`
+
+const InfoContainer = styled.div`
 flex: 1;
 padding: 50px;
-`
-const Title= styled.h1`
+`;
+
+const Title = styled.h1`
 font-size: 70px;
-`
+`;
 const Desc= styled.p`
 margin: 50px 0px;
 font-size: 20px;
@@ -65,7 +70,7 @@ const Button= styled.button`
 padding: 10px;
 font-size: 20px;
 background-color: transparent;
-cursor: pointer;
+cursor: pointer; 
 `;
 
 const Slider = () => {
@@ -73,9 +78,9 @@ const Slider = () => {
     const handleClick = (direction=> {
 
         if(direction==="left") {
-            setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2);
+            setSlideIndex(slideIndex > 0 ? slideIndex-1 : 3);
         } else {
-            setSlideIndex(slideIndex < 2 ? slideIndex+1 : 0);
+            setSlideIndex(slideIndex < 3 ? slideIndex+1 : 0);
         }
 
     })
@@ -87,7 +92,7 @@ const Slider = () => {
         </Arrow>
             <Wrapper slideIndex={slideIndex}>
                 {sliderItems.map(item=>(
-              <Slide bg={item.bg}>
+              <Slide bg={item.bg} key={item.id}>
                 <ImgContainer>
                    <Image src={item.img}/>
                 </ImgContainer>
