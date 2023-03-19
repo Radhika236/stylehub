@@ -38,7 +38,8 @@ flex:1;
 text-align: center;
 `
 const Logo = styled.img`
-height: 60px;
+height: 40px;
+margin: 10px;
 `
 
 const Right = styled.div`
