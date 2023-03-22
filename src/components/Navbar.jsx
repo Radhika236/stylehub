@@ -18,12 +18,14 @@ display: flex;
 align-items: center; 
 `
 const Language = styled.div`
-    font-size: 14px;
-    cursor: pointer;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
 `
 
 const SearchContainer = styled.div`
-border: 0.5px solid lightgray;
+border: 1.5px solid black;
+border-radius: 5px;
 display: flex; 
 align-items: center;
 margin-left: 25px; 
@@ -37,8 +39,8 @@ const Center = styled.div`
 flex:1;
 text-align: center;
 `
-const Logo = styled.img`
-height: 40px;
+const Logo = styled.h1`
+// height: 40px;
 margin: 10px;
 `
 
@@ -49,7 +51,8 @@ align-items: center;
 justify-content: flex-end;
 `
 const MenuItem= styled.div`
-font-size: 14px;
+font-size: 15px;
+font-weight: 600;
 cursor: pointer;
 margin-left: 25px;
 `
@@ -63,10 +66,10 @@ const Navbar = () => {
                 <Language>EN</Language>
             <SearchContainer>
                 <Input/>
-                <Search style={{color:"gray", fontSize:16}}/>
+                <Search style={{color:"black", fontSize:16}}/>
             </SearchContainer>
             </Left>
-            <Center><Logo src='style.png'/></Center>
+            <Center><Logo>Style.Hub</Logo></Center>
             <Right>
                 <MenuItem>REGISTER</MenuItem>
                 <MenuItem>SIGN IN</MenuItem>
