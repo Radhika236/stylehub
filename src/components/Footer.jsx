@@ -1,8 +1,11 @@
 import { Facebook, Instagram, LinkedIn, MailOutline, Phone, Room, Twitter } from "@mui/icons-material";
 import styled from "styled-components"
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
 display: flex;
+
+${mobile({ flexDirection: "column" })};
 `;
 
 const Left = styled.div`
@@ -12,8 +15,8 @@ flex-direction: column;
 padding: 20px;
 `;
 
-const Logo = styled.img`
-width: 40%;
+const Logo = styled.h2`
+// width: 40%;
 `;
 
 const Desc = styled.p`
@@ -40,6 +43,8 @@ margin-right: 20px;
 const Center = styled.div`
 flex: 1;
 padding: 20px;
+
+${mobile({ display: "none" })};
 `;
 
 const Title = styled.h3`
@@ -62,6 +67,8 @@ margin-bottom: 10px;
 const Right = styled.div`
 flex: 1;
 padding: 20px 0px;
+
+${mobile({ backgroundColor: "#eee" })};
 `;
 
 const ContactItem = styled.div`
@@ -78,7 +85,7 @@ const Footer = () => {
   return (
     <Container>
         <Left>
-            <Logo src="style.png"/>
+            <Logo>Style.hub</Logo>
             <Desc>Lorem ipsum dolor sit amet. Qui voluptatem quisquam aut quaerat nihil ut veritatis eligendi? Et exercitationem maxime qui asperiores illo ut voluptatum tempore. Et error officia qui quia tenetur non perspiciatis vitae.</Desc>
             <SocialContainer>
                 <SocialIcon color="3B5999">

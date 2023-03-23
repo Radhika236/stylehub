@@ -1,11 +1,12 @@
 import styled from "styled-components"
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
 width: 100vw;
 height: 100vh;
 background: linear-gradient(
-    rgba(255, 255, 255, 0.5),
-    rgba(255,255,255, 0.5)
+    rgba(235,235,235, 0.4),
+    rgba(235,235,235, 0.4)
 ),
  url("https://images.pexels.com/photos/11869672/pexels-photo-11869672.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load") center;
 background-size: cover;
@@ -18,6 +19,9 @@ const Wrapper = styled.div`
 width: 40%;
 padding: 20px; 
 background-color: white;
+border-radius: 10px;
+
+${mobile({ width: "80%" })};
 `;
 
 const Title = styled.h1`

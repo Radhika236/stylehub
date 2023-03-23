@@ -4,6 +4,7 @@ import Announcement from '../components/Announcement'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar'
 import NewsLetter from '../components/NewsLetter';
+import { mobile } from '../Responsive';
 
 
 const Container = styled.div``;
@@ -11,6 +12,8 @@ const Container = styled.div``;
 const Wrapper = styled.div`
 display: flex;
 padding: 15px;
+
+${mobile({ padding: "5px 0px", flexDirection: "column" })};
 `;
 
 const ImageContainer = styled.div`
@@ -25,17 +28,20 @@ width: 90%;
 height: 85%;
 object-fit: cover;
 border-radius: 10px;
+${mobile({ width: "80vw", height: "45vh" })};
 `;
 
 const InfoContainer = styled.div`
 flex: 0.7;
 margin: 40px 30px;
+${mobile({ padding: "0px", width: "90%" })};
 `;
 
 const HeadContainer = styled.div`
 width: 80%;
 display: flex;
 justify-content: space-between;
+${mobile({ width: "90%", fontSize: "13px" })};
 `;
 
 const Title = styled.h2``;
@@ -47,6 +53,7 @@ width: 83%;
 display: flex;
 justify-content: space-between;
 margin: 30px 0px;
+${mobile({ width: "90%", fontSize: "13px" })};
 `;
 
 const Filter = styled.div`
@@ -64,6 +71,7 @@ border-radius: 50%;
 border: 2px solid black;
 background-color: ${props=>props.color};
 cursor: pointer;
+${mobile({ width: "20px", height: "20px" })};
 `;
 
 const FilterSize = styled.select`
@@ -80,6 +88,7 @@ margin: 50px 0px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+${mobile({ width: "90%" })};
 `;
 
 const AmountContainer = styled.div`
@@ -97,6 +106,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin: 0px 5px;
+${mobile({ width: "20px", height: "20px", borderRadius: "6px"})};
 `;
 
 const Button = styled.button`
@@ -108,6 +118,7 @@ border-radius: 10px;
 background-color: white;
 cursor: pointer;
 font-weight: 600;
+${mobile({ padding: "5px" })};
 
 &:hover{
     background-color: gray;
@@ -116,13 +127,16 @@ font-weight: 600;
 
 const Desctitle = styled.h3`
 margin-top: 60px;
+${mobile({ width: "90%", marginTop: "30px" })};
 `;
 
 const Desc = styled.p`
 width: 80%;
 margin-top: 30px;
 font-size: 16px;
-letter-spacing: 2.5px;`;
+letter-spacing: 2.5px;
+${mobile({ width: "90%", margin: "10px 0px" })};
+`;
 
 const InfoTitle = styled.h3`
 margin-top 60px;
@@ -153,7 +167,7 @@ const NewProduct = () => {
         </ImageContainer>
         <InfoContainer>
         <HeadContainer>
-            <Title>Basic Tee</Title>
+            <Title>Basic Tees</Title>
             <Price>Rs. 500</Price>
         </HeadContainer>
         <FilterContainer>
