@@ -121,7 +121,7 @@ const Footer = () => {
             <ContactItem><Room style={{marginRight:"10px"}}/>123 Industrial Area phase 1, Chandigarh</ContactItem>
             <ContactItem><Phone style={{marginRight:"10px"}}/>+91 7814915760</ContactItem>
             <ContactItem><MailOutline style={{marginRight:"10px"}}/>contact@stylehub.com</ContactItem>
-            <Payment src="i.png"/>
+            <Payment src="images/i.png"/>
         </Right> 
     </Container>
   )

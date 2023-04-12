@@ -1,28 +1,28 @@
 export const sliderItems = [
     {
         id: 1,
-        img: "b.png",
+        img: "images/b.png",
         title: "SUMMER SALE",
         desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
         bg: "c1e3e2"
     },   
     {
         id: 2,
-        img: "a.png",
+        img: "images/a.png",
         title: "WINTER SALE",
         desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
         bg: "a1a2f7"
     },
     {
         id: 3,
-        img: "c.png",
+        img: "images/c.png",
         title: "HOT SALE",
         desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
         bg: "f2e0c2"
     }, 
     {
         id: 4,
-        img: "d.png",
+        img: "images/d.png",
         title: "POPULAR SALE",
         desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
         bg: "edc5d3"
@@ -33,18 +33,21 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: "https://images.unsplash.com/photo-1628641316878-4d5b0b4c5f4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80",
+        img: "images/cat1.jpeg",
         title: "SHIRT STYLE",
+        cat: "tshirt"
     },
     {
         id: 2,
-        img: "https://betches.s3.amazonaws.com/app/uploads/2020/05/04075145/photo-1444658293155-105ae40f8278.jpeg",
+        img: "images/cat2.jpeg",
         title: "LOUNGEWEAR LOVE",
+        cat: "Coat"
     },
     {
         id: 3,
-        img: "https://media.istockphoto.com/id/1294329344/photo/photo-of-cheerful-curly-woman.jpg?s=612x612&w=0&k=20&c=_1OmJEGOML4QyEiNLZT8mswoU1JUD-UWxEIMEJzZgmI=",
+        img: "images/cat3.jpg",
         title: "LIGHT JACKETS ",
+        cat: "jeans"
     },
 ]
 

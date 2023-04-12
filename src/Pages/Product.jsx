@@ -5,7 +5,9 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar'
 import NewsLetter from '../components/NewsLetter';
 import { mobile } from '../Responsive';
-
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { publicRequest } from '../RequestMethods';
 
 const Container = styled.div``;
 
@@ -156,14 +158,27 @@ letter-spacing: 1px;
 margin-bottom: 10px;
 `;
 
-const NewProduct = () => {
+const Product = () => {
+    const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+
+  useEffect(()=>{
+    const getProduct = async ()=>{
+        try {
+            const res = await publicRequest.get("/products/find/" +id);
+            setProduct(res.data);
+        } catch (err) {}
+    };
+    getProduct()
+  },[id]);
   return (
     <Container>
         <Announcement/>
         <Navbar/>
         <Wrapper>
         <ImageContainer>
-            <Image src="product.jpg" />
+            <Image src= {product.img} />
         </ImageContainer>
         <InfoContainer>
         <HeadContainer>
@@ -215,4 +230,4 @@ const NewProduct = () => {
   )
 }
 
-export default NewProduct
+export default Product

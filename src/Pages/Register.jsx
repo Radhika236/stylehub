@@ -8,7 +8,7 @@ background: linear-gradient(
     rgba(235,235,235, 0.4),
     rgba(235,235,235, 0.4)
 ),
- url("https://images.pexels.com/photos/11869672/pexels-photo-11869672.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load") center;
+ url("images/register.jpeg") center;
 background-size: cover;
  display: flex;
  align-items: center;
