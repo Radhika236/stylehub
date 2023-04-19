@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import NewsLetter from "../components/NewsLetter";
 import { mobile } from "../Responsive";
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -160,6 +162,7 @@ font-weight: 600;
 `;
 
 const Cart = () => {
+    const cart = useSelector(state=>state.cart)
   return (
     <Container>
         <Navbar/>
@@ -177,51 +180,35 @@ const Cart = () => {
             </Top>
             <Bottom>
                 <Info>
+                    {cart.products.map(product=>(
                     <Product>
                         <ProductDetail>
-                            <Image src="https://images.pexels.com/photos/1461048/pexels-photo-1461048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1s" />
+                            <Image src="https://m.media-amazon.com/images/I/51CstosUIoL._UL1200_.jpg" />
                             <Details>
-                            <ProductName><b>Product:</b> SHOES</ProductName>
-                            <ProductId><b>ID:</b> 68416466164</ProductId>
-                            <ProductColor color="black"/>
-                            <ProductSize><b>Size:</b> 37.5</ProductSize>
-                            </Details>
-                        </ProductDetail>
-                        <PriceDetail>
-                            <ProductAmountContainer>
-                                <Add/>
-                                <ProductAmount>1</ProductAmount>
-                                <Remove/>
-                            </ProductAmountContainer>
-                            <ProductPrice>$ 30</ProductPrice>
-                        </PriceDetail>
-                    </Product>
-<Hr/>
-                    <Product>
-                        <ProductDetail>
-                            <Image src="https://cdn.shopify.com/s/files/1/1002/7150/products/New-Mockups---no-hanger---TShirt-Man-of-Masses---NTR-a.jpg?v=1643011256" />
-                            <Details>
-                            <ProductName><b>Product:</b> T-Shirt</ProductName>
-                            <ProductId><b>ID:</b> 68416466164</ProductId>
-                            <ProductColor color="darkblue"/>
+                            <ProductName><b>Product:</b> puma tshirt</ProductName>
+                            <ProductId><b>ID:</b> 642165159150153d4d11ae1d</ProductId>
+                            <ProductColor color="pink"/>
                             <ProductSize><b>Size:</b> M</ProductSize>
                             </Details>
                         </ProductDetail>
                         <PriceDetail>
                             <ProductAmountContainer>
                                 <Add/>
-                                <ProductAmount>1</ProductAmount>
+                                <ProductAmount>{product.quantity}</ProductAmount>
                                 <Remove/>
                             </ProductAmountContainer>
-                            <ProductPrice>$ 20</ProductPrice>
+                            <ProductPrice>$ 60</ProductPrice>
                         </PriceDetail>
                     </Product>
+                    ))}
+<Hr/>
+                   
                 </Info>
                 <Summary>
                     <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                     <SummaryItem>
                     <SummaryItemText>Subtotal</SummaryItemText>
-                    <SummaryItemPrice>$ 50</SummaryItemPrice>
+                    <SummaryItemPrice>$ 60</SummaryItemPrice>
                     </SummaryItem> 
 
                     <SummaryItem>
@@ -236,10 +223,11 @@ const Cart = () => {
 
                     <SummaryItem type="total">
                     <SummaryItemText>Total</SummaryItemText>
-                    <SummaryItemPrice>$ 50</SummaryItemPrice>
-                    </SummaryItem> 
-
+                    <SummaryItemPrice>$ 60</SummaryItemPrice>
+                    </SummaryItem>
+                    <Link to ="/success">
                     <Button>BUY NOW</Button>
+                    </Link>
                 </Summary>                
             </Bottom>
         </Wrapper>

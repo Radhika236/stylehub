@@ -8,6 +8,9 @@ import { mobile } from '../Responsive';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { publicRequest } from '../RequestMethods';
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
+import { Link } from '@mui/material';
 
 const Container = styled.div``;
 
@@ -70,7 +73,7 @@ width: 30px;
 height: 30px;
 margin: 0px 5px;
 border-radius: 50%;
-border: 2px solid black;
+// border: 2px solid black;
 background-color: ${props=>props.color};
 cursor: pointer;
 ${mobile({ width: "20px", height: "20px" })};
@@ -121,10 +124,6 @@ background-color: white;
 cursor: pointer;
 font-weight: 600;
 ${mobile({ padding: "5px" })};
-
-&:hover{
-    background-color: gray;
-}
 `;
 
 const Desctitle = styled.h3`
@@ -158,38 +157,52 @@ letter-spacing: 1px;
 margin-bottom: 10px;
 `;
 
-const Product = () => {
-    const location = useLocation();
+const Product = ({item}) => {
+  const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
   useEffect(()=>{
-    const getProduct = async ()=>{
+    const getProduct = async () => {
         try {
-            const res = await publicRequest.get("/products/find/" +id);
+            const res = await publicRequest.get("/products/find/" + id);
+            console.log(res.data);
             setProduct(res.data);
         } catch (err) {}
     };
-    getProduct()
+    getProduct();
   },[id]);
+
+  const handleQuantity = (type) =>{
+    if(type==="dec"){
+       quantity>1 && setQuantity(quantity-1)
+    } else {
+        setQuantity(quantity+1)
+    }
+  }
+
+  const handleClick = () => { 
+    dispatch(addProduct({ ...product, quantity}));
+  };
   return (
     <Container>
         <Announcement/>
         <Navbar/>
         <Wrapper>
         <ImageContainer>
-            <Image src= {product.img} />
+            <Image src= "https://m.media-amazon.com/images/I/51CstosUIoL._UL1200_.jpg" />
         </ImageContainer>
         <InfoContainer>
         <HeadContainer>
-            <Title>Basic Tees</Title>
-            <Price>Rs. 500</Price>
+            <Title>Full sleeves tshirt</Title>
+            <Price>$30</Price>
         </HeadContainer>
         <FilterContainer>
           <Filter>
             <FilterTitle>Color</FilterTitle>
-            <FilterColor color="black"/>
-            <FilterColor color="gray"/>
+            <FilterColor color="pink"/>
             </Filter>
             <Filter>
             <FilterTitle>Size</FilterTitle>
@@ -204,11 +217,12 @@ const Product = () => {
         </FilterContainer>
         <AddContainer>
         <AmountContainer>
-                    <Remove/>
-                    <Amount>1</Amount>
-                    <Add/>
+                    <Remove onClick={()=>handleQuantity("dec")} />
+                    <Amount>{quantity}</Amount>
+                    <Add onClick={()=>handleQuantity("inc")} />
         </AmountContainer>
-        <Button>ADD TO CART</Button>
+        <Button onClick={()=>handleClick()}>ADD TO CART</Button>
+        
         </AddContainer>
         <Desctitle>Description.</Desctitle>
         <Desc>Start every outfit with Symbol's elevated wardrobe basics that are versatile, stylish and compliment your everyday look. This pack of 2 t-shirts feature a round neck and short sleeves. Made in stretchable cotton jersey fabric with 3% lycra for a soft hand feel and added comfort. Style it with a pair of denim shorts or skinny jeans and sneakers for an easy-going casual look.</Desc>

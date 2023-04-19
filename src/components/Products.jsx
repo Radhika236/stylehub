@@ -22,6 +22,7 @@ useEffect(()=>{
         ? `http://localhost:5000/Api/products?category=${cat}` 
         : "http://localhost:5000/Api/products"
         );
+        console.log(res.data)
         setProducts(res.data);
     } catch (err) {
     };
